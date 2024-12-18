@@ -7,7 +7,9 @@
   </button>
 
   <button class="btn" (click)= "increment()">
-    increment {{counter()}}
+    increment 
+    <!-- {{counter()}} with variable-->
+     {{counter().value}} with obj
   </button>
 
   <mat-tab-group>

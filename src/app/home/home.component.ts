@@ -8,6 +8,9 @@ import {MessagesService} from "../messages/messages.service";
 import {catchError, from, throwError} from "rxjs";
 import {toObservable, toSignal, outputToObservable, outputFromObservable} from "@angular/core/rxjs-interop";
 
+type Counter ={
+    value: number
+}
 @Component({
     selector: 'home',
     imports: [
@@ -19,11 +22,24 @@ import {toObservable, toSignal, outputToObservable, outputFromObservable} from "
     styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-counter = signal(0);
+// counter = signal(0);
 
+// with obj
+counter = signal<Counter>({value: 100})
+
+// increment(){
+//    // ++this.counter
+//    this.counter.set(this.counter() +1)
+// }
+
+// other way to update counter
+// increment(){
+//    // ++this.counter
+// //    this.counter.update((counter)=>counter +1)
+// }
+
+// with obj
 increment(){
-   // ++this.counter
-   this.counter.set(this.counter() +1)
+this.counter.update((counter)=>({...counter, value: counter.value +1}))
 }
-
 }

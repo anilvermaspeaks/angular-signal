@@ -27,6 +27,13 @@ export class HomeComponent {
 // with obj
 counter = signal<Counter>({value: 100})
 
+computedCounter = computed(()=>{
+  const val =  this.counter().value;
+
+  return val*5;
+
+})
+
 // increment(){
 //    // ++this.counter
 //    this.counter.set(this.counter() +1)
